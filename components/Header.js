@@ -28,8 +28,8 @@ const Header = ({ isShow }) => {
           <img
             className="logo"
             onClick={() => router.push("/")}
-            src="https://i.postimg.cc/W1PwRj4j/logo.png"
-            alt="Tiktok"
+            alt="SecondSwipe"
+            src="https://i.ibb.co/QPD8gS6/fulllogo.png"
           />
         </motion.div>
 
@@ -50,7 +50,7 @@ const Header = ({ isShow }) => {
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
-              stroke="currentColor"
+              stroke="#1A965E"
               className="w-6 h-6 ml-2"
             >
               <path
@@ -81,7 +81,7 @@ const Header = ({ isShow }) => {
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
-                    stroke="currentColor"
+                    stroke="#1A965E"
                     className="w-5 h-5"
                   >
                     <path
@@ -155,7 +155,7 @@ const Header = ({ isShow }) => {
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
-                stroke="currentColor"
+                stroke="#1A965E"
                 className="w-6 h-6"
                 onClick={() => setDropMenu(true)}
               >

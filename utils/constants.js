@@ -1,45 +1,39 @@
-import { BsCode, BsEmojiSunglasses } from "react-icons/bs";
-import { GiCakeSlice, GiGalaxy, GiLipstick } from "react-icons/gi";
-import { FaPaw, FaMedal, FaGamepad } from "react-icons/fa";
+import { GiBananaPeel, GiAngelOutfit, GiBeachBag, GiJewelCrown, GiLabCoat, GiPocketWatch, GiSleevelessJacket, GiConqueror } from "react-icons/gi";
 
 import { Other } from "../components/icon/Other";
 
 export const topics = [
   {
-    name: "development",
-    icon: <BsCode />,
+    name: "Fits",
+    icon: <GiAngelOutfit />,
   },
   {
-    name: "comedy",
-    icon: <BsEmojiSunglasses />,
+    name: "Shoes",
+    icon: <GiBananaPeel />,
   },
   {
-    name: "gaming",
-    icon: <FaGamepad />,
+    name: "Bags",
+    icon: <GiBeachBag />,
   },
   {
-    name: "food",
-    icon: <GiCakeSlice />,
+    name: "Jewellery",
+    icon: <GiJewelCrown />,
   },
   {
-    name: "dance",
-    icon: <GiGalaxy />,
+    name: "Formal",
+    icon: <GiLabCoat />,
   },
   {
-    name: "beauty",
-    icon: <GiLipstick />,
+    name: "Watches",
+    icon: <GiPocketWatch />,
   },
   {
-    name: "animals",
-    icon: <FaPaw />,
+    name: "Denim",
+    icon: <GiSleevelessJacket />,
   },
   {
-    name: "sports",
-    icon: <FaMedal />,
-  },
-  {
-    name: "Other",
-    icon: <Other />,
+    name: "Sports",
+    icon: <GiConqueror />,
   },
 ];
 

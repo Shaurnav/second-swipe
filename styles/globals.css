@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
 /*    */
 
 * {
@@ -13,21 +15,21 @@
 body {
   display: flex;
   flex-direction: column;
-  font-family: sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: #fff;
 }
 
 .navbar {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   height: 4rem;
   /*   border-bottom: 1px solid rgb(200, 200, 200); */
 }
 
 .logo {
-  height: 140px;
   width: 180px;
+  margin-left: 30px;
 }
 
 .logo:hover {
@@ -53,17 +55,13 @@ body {
 .search-btn {
   position: relative;
   background-color: rgb(235, 235, 235);
-  border: 1px solid rgb(200, 200, 200);
-  border-left: none;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
   width: 3rem;
   height: 3rem;
-  border: none;
 }
 
 .search-btn:hover {
-  background-color: rgb(220, 220, 220);
   cursor: pointer;
 }
 
@@ -83,7 +81,7 @@ body {
 
 .nav-right {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   width: 15rem;
   margin-right: 4rem;
@@ -106,15 +104,15 @@ body {
   height: 2.3rem;
   width: 6rem;
   color: #fff;
-  background-color: rgb(254, 44, 85);
+  background-color: #1A965E;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
   font-weight: 600;
+  margin-right: 30px;
 }
 
 .login-btn:hover {
-  background-color: rgb(233, 37, 76);
   cursor: pointer;
 }
 
@@ -178,13 +176,16 @@ li > a > i {
 main {
   display: flex;
   width: 100vw;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .left {
-  flex: 0.35;
+  flex: 0.3;
   height: 90vh;
   overflow-y: hidden;
   overflow-x: hidden;
+  left: 0 !important;
 }
 
 .left:hover {
@@ -199,12 +200,12 @@ main {
   margin-top: 1rem;
   margin-left: 8rem;
   margin-right: 1rem;
-  width: 90%;
+  width: 100%;
 }
 
 .btns > a {
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: rgb(22, 24, 35);
   font-weight: 600;
   padding-top: 1rem;
@@ -219,7 +220,7 @@ main {
 
 .btns > a:first-child > i,
 .btns > a:first-child > span {
-  color: rgb(254, 44, 85);
+  color: #1A965E;
 }
 
 .btns > a > i {

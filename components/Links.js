@@ -7,18 +7,13 @@ const Links = () => {
       <div>
         <div className="link">
           <a href="#">About</a>
-          <a href="#">Newsroom</a>
           <a href="#">Contact</a>
-          <a href="#">Careers</a>
-          <a href="#">ByteDance</a>
-          <a href="#">About</a>
-          <a href="#">Newsroom</a>
-          <a href="#">Contact</a>
-          <a href="#">Careers</a>
-          <a href="#">ByteDance</a>
+          <a href="#">FAQs</a>
+          <a href="#">Report</a>
+          <a href="#">SecondSwipe</a>
         </div>
         <div className="copyright">
-          <h6>&copy; {moment().format("YYYY")} TikTok</h6>
+          <h6>&copy; {moment().format("YYYY")} SecondSwipe</h6>
         </div>
       </div>
     </div>

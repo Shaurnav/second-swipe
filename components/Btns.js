@@ -26,7 +26,7 @@ const Btns = () => {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
-            fill="currentColor"
+            fill="#1A965E"
             className="w-6 h-6 text-pink-500"
           >
             <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
@@ -40,7 +40,7 @@ const Btns = () => {
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
-            stroke="currentColor"
+            stroke="#1A965E"
             className="w-6 h-6"
           >
             <path
@@ -57,7 +57,7 @@ const Btns = () => {
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
-            stroke="currentColor"
+            stroke="#1A965E"
             className="w-6 h-6"
           >
             <path
@@ -65,18 +65,12 @@ const Btns = () => {
               d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"
             />
           </svg>
-          <span>Live</span>
+          <span>Live Bids</span>
         </a>
       </div>
-      {!user && (
-        <div className="login">
-          <p>Log in to follow creators, like videos, and view comments</p>
-          <button onClick={() => router.push("/auth/signin")}>Log in</button>
-        </div>
-      )}
 
       <div className="accounts">
-        <p>Suggested accounts</p>
+        <p>Suggested Creators</p>
         {suggestions.map((data, index) => (
           <div className="user" key={index}>
             <img src={data.avatar} alt="avatar" />
