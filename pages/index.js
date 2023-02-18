@@ -4,8 +4,6 @@ import Header from "../components/Header";
 import LeftHandSide from "../components/LeftHandSide";
 import RightHandSide from "../components/RightHandSide";
 
-import icon from "../assets/icon.png";
-
 export default function Home() {
   return (
     <div>

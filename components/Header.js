@@ -5,8 +5,10 @@ import { signOut } from "firebase/auth";
 import { motion } from "framer-motion";
 
 import { BsFillKeyboardFill } from "react-icons/bs";
+import { BiBookAdd, BiLogIn } from "react-icons/bi";
 
 import { auth } from "../firebase/firebase";
+import {GiThorHammer} from "react-icons/gi/index";
 
 const Header = ({ isShow }) => {
   const router = useRouter();
@@ -70,51 +72,20 @@ const Header = ({ isShow }) => {
         >
           {isShow && (
             <>
-              {user && (
+              {!user && (
                 <button
                   onClick={() => router.push("/pin/create")}
                   type="button"
-                  className="flex items center text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-4 py-2 text-center mr-2 shadow-lg"
+                  className="upload-btn"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="#1A965E"
-                    className="w-5 h-5"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12 4.5v15m7.5-7.5h-15"
-                    />
-                  </svg>
-                  Upload
+                  <span className="font-bold text-2xl xl:text-md "><BiBookAdd /></span>
+                  <span className={`font-medium text-md hidden xl:block capitalize`}>
+                    Upload
+                  </span>
                 </button>
               )}
             </>
           )}
-          {/* <button
-            className="upload-btn flex items-center"
-            onClick={() => router.push("/pin/create")}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-5 h-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 4.5v15m7.5-7.5h-15"
-              />
-            </svg>
-            Upload
-          </button> */}
           {user ? (
             <div className="flex items-center">
               <img
@@ -129,7 +100,10 @@ const Header = ({ isShow }) => {
               className="login-btn"
               onClick={() => router.push("/auth/signin")}
             >
-              Log in
+              <span className="font-bold text-2xl xl:text-md "><BiLogIn /></span>
+              <span className={`font-medium text-md hidden xl:block capitalize`}>
+                Login
+              </span>
             </button>
           )}
           <div className="drop-down">

@@ -13,6 +13,28 @@ const Btns = () => {
   const router = useRouter();
   const [suggestions, setSuggestions] = useState([]);
 
+  const options = {
+    method: 'POST',
+    headers: {
+      accept: 'application/json',
+      'content-type': 'application/json',
+      Authorization: 'd6aa2703655f4ba2af2a56202961ca86:dXbCgzYBMibj8ZwuQMd2NXr6rtvjZ8'
+    },
+    body: JSON.stringify({
+      recipient: 'testing@checkbook.io',
+      name: 'Widgets Inc.',
+      amount: 5,
+      description: 'Test Payment'
+    })
+  };
+
+  const makePayment = () => {
+    fetch('https://demo.checkbook.io/v3/check/digital', options)
+      .then(response => response.json())
+      .then(response => console.log(response))
+      .catch(err => console.error(err));
+  }
+
   useEffect(() => {
     const suggestions = [...Array(5)].map((_, i) => ({
       userId: faker.datatype.uuid(),
@@ -48,7 +70,7 @@ const Btns = () => {
       <div className="accounts">
         <p>Suggested Creators</p>
         {suggestions.map((data, index) => (
-          <div className="user" key={index}>
+          <div className="user" key={index} onClick={makePayment}>
             <img src={data.avatar} alt="avatar" />
             <h6 className="username">{data.username}</h6>
           </div>
