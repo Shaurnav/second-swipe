@@ -71,9 +71,10 @@ const CreateVideo = () => {
           userId: user?.uid,
           username: user?.displayName,
           topic: topic === "Other" ? hashTags : topic,
-          price: price
-            ? price
-            : `original sound - ${user?.displayName}`,
+          price: price,
+          selling: selling,
+          condition: condition,
+          getPrice: getPrice,
           caption: caption,
           profileImage: user?.photoURL,
           company: user?.email,
