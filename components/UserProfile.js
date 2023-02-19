@@ -16,8 +16,6 @@ const UserProfile = () => {
   const [userData, setUserData] = useState([]);
   const [isShow, setIsShow] = useState(false);
 
-  /*   console.log(posts); */
-
   useEffect(
     () =>
       onSnapshot(

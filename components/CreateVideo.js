@@ -64,15 +64,15 @@ const CreateVideo = () => {
 
       try {
         const docRef = await addDoc(collection(firestore, "posts"), {
-          userId: "awigeb",
-          username: "asigviaweg",
+          userId: user?.uid,
+          username: user?.displayName,
           topic: topic === "Other" ? hashTags : topic,
           songName: songName
             ? songName
             : `original sound - ${user?.displayName}`,
           caption: caption,
-          profileImage: "https://www.pinecrest.edu/images/1px.png?command_1=url&url_1=https%3A%2F%2Fwww.pinecrest.edu%2Fuserfiles%2Fpcsmvc%2FImages%2FNews%2F2020%2F09-Sept%2FGhosh_Shaurnav132.JPG&command_2=resize&width_2=400&height_2=400",
-          company: "aisrugbgosu",
+          profileImage: user?.photoURL,
+          company: user?.email,
           timestamp: serverTimestamp(),
         });
 
@@ -148,7 +148,7 @@ const CreateVideo = () => {
   };
 
   useEffect(() => {
-    if (user) {
+    if (!user) {
       router.push("/");
     } else return;
   }, [user]);
