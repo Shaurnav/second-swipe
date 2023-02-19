@@ -29,7 +29,7 @@ const Header = ({ isShow }) => {
         >
           <img
             className="logo"
-            onClick={() => router.push("/")}
+            onClick={() => signOut(auth)}//router.push("/")} 
             alt="SecondSwipe"
             src="https://i.ibb.co/QPD8gS6/fulllogo.png"
           />
@@ -72,7 +72,7 @@ const Header = ({ isShow }) => {
         >
           {isShow && (
             <>
-              {!user && (
+              {user && (
                 <button
                   onClick={() => router.push("/pin/create")}
                   type="button"
@@ -106,7 +106,7 @@ const Header = ({ isShow }) => {
               </span>
             </button>
           )}
-          <div className="drop-down">
+          <div className="drop-down z-[999]">
             {dropMenu ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +145,7 @@ const Header = ({ isShow }) => {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                className="menu z-[999]"
+                className="menu z-[-11111]"
               >
                 <ul>
                   <li>
