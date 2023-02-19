@@ -51,6 +51,7 @@ const RightHandSide = () => {
               price={post.data().price}
               id={post.id}
               selling={post.data().selling}
+              condition={post.data().condition}
             />
           ))}
         </>

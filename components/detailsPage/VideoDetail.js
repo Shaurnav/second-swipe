@@ -80,7 +80,8 @@ const VideoDetail = ({
   price,
   id,
   videoId,
-  selling
+  selling,
+  condition
 }) => {
   const [user] = useAuthState(auth);
   const router = useRouter();

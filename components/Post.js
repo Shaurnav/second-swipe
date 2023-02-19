@@ -35,7 +35,8 @@ const Post = ({
   userId,
   price,
   id,
-  selling
+  selling,
+  condition
 }) => {
   const [user] = useAuthState(auth);
   const router = useRouter();

@@ -40,6 +40,7 @@ const DetailFeed = () => {
           id={post.id}
           videoId={videoId}
           selling={post.data().selling}
+          condition={post.data().condition}
         />
       ))}
     </div>
