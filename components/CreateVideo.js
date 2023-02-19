@@ -25,7 +25,7 @@ const CreateVideo = () => {
   const [topic, setTopic] = useState(topics[0].name);
   const [loading, setLoading] = useState(false);
   const [wrongFileType, setWrongFileType] = useState(false);
-  const [songName, setSongName] = useState("");
+  const [price, setprice] = useState("");
   const [hashTags, setHashTags] = useState("");
   const [tagShow, setTagShow] = useState(false);
   const [tagError, setTagError] = useState("");
@@ -70,8 +70,8 @@ const CreateVideo = () => {
           userId: user?.uid,
           username: user?.displayName,
           topic: topic === "Other" ? hashTags : topic,
-          songName: songName
-            ? songName
+          price: price
+            ? price
             : `original sound - ${user?.displayName}`,
           caption: caption,
           profileImage: user?.photoURL,
@@ -147,7 +147,7 @@ const CreateVideo = () => {
     setCaption("");
     setTopic("");
     setHashTags("");
-    setSongName("");
+    setprice("");
   };
 
   useEffect(() => {
@@ -157,8 +157,8 @@ const CreateVideo = () => {
   }, [user]);
 
   useEffect(() => {
-    setPrice(((condition/6)*songName).toFixed(2));
-  }, [condition, songName]);
+    setPrice(((condition/6)*price).toFixed(2));
+  }, [condition, price]);
 
   useEffect(() => {
     handleChecker();
@@ -274,8 +274,8 @@ const CreateVideo = () => {
           <label className="text-md font-medium ">Original Price (in USD)</label>
           <input
             type="text"
-            value={songName}
-            onChange={(e) => setSongName(e.target.value)}
+            value={price}
+            onChange={(e) => setprice(e.target.value)}
             className="rounded lg:after:w-650 outline-none text-md border-2 border-gray-200 p-2"
           />
           <label className="text-md font-medium ">Choose Category</label>

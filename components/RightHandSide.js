@@ -44,7 +44,7 @@ const RightHandSide = () => {
               timestamp={post.data().timestamp}
               username={post.data().username}
               userId={post.data().userId}
-              songName={post.data().songName}
+              price={post.data().price}
               id={post.id}
             />
           ))}

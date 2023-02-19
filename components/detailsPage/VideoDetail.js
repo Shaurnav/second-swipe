@@ -77,7 +77,7 @@ const VideoDetail = ({
   timestamp,
   username,
   userId,
-  songName,
+  price,
   id,
   videoId,
 }) => {
@@ -354,7 +354,7 @@ const VideoDetail = ({
                   </svg>
                 )}
 
-                <p className="font-semibold text-sm">{songName}</p>
+                <p className="font-semibold text-sm">{price}</p>
               </div>
               <div className="mt-5 px-10">
                 {user && (
