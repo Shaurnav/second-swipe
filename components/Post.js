@@ -196,7 +196,7 @@ const Post = ({
               <div className="flex items-center gap-2">
                 <p className="flex gap-2 items-center md:text-md font-bold text-primary">
                   {username}
-                  <GoVerified className="text-blue-400 text-md" />
+                  
                 </p>
                 <div className="video-buttons-container-row">
                   <button
