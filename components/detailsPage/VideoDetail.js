@@ -80,6 +80,7 @@ const VideoDetail = ({
   price,
   id,
   videoId,
+  selling
 }) => {
   const [user] = useAuthState(auth);
   const router = useRouter();
@@ -296,9 +297,7 @@ const VideoDetail = ({
                     {username} <GoVerified className="text-blue-400 text-xl" />
                   </div>
                   <div className="flex gap-2 items-center">
-                    <p className="text-sm">{company}</p>
                     <p className="pr-5 text-xs">
-                      {"."}
                       {moment(new Date(timestamp?.seconds * 1000)).fromNow()}
                     </p>
                   </div>
@@ -331,30 +330,8 @@ const VideoDetail = ({
                 )}
               </div>
               <div className="px-10 py-2.5 flex gap-4">
-                {isPlaying ? (
-                  <img
-                    className="w-5 h-5 animate-spin"
-                    src="https://cdn2.iconfinder.com/data/icons/digital-and-internet-marketing-3-1/50/109-512.png"
-                    alt="image"
-                  />
-                ) : (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-5 h-5"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z"
-                    />
-                  </svg>
-                )}
 
-                <p className="font-semibold text-sm">{price}</p>
+                <p className="font-semibold text-sm">{"Resale starts at $" + selling}</p>
               </div>
               <div className="mt-5 px-10">
                 {user && (

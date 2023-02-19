@@ -35,6 +35,7 @@ const Post = ({
   userId,
   price,
   id,
+  selling
 }) => {
   const [user] = useAuthState(auth);
   const router = useRouter();
@@ -237,7 +238,7 @@ const Post = ({
               </>
 
               <div className="flex flex-1 gap-4 py-2.5">
-                <p className="font-semibold text-sm">{"Resale Starting at $" + price}</p>
+                <p className="font-semibold text-sm">{"Resale Starting at $" + selling}</p>
               </div>
             </div>
           </div>

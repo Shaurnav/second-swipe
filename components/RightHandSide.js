@@ -29,11 +29,15 @@ const RightHandSide = () => {
     }, 3000);
   }, [posts]);
 
+  const shuffledPosts = posts.map(value => ({ value, sort: Math.random() }))
+  .sort((post1, post2) => post1.sort - post2.sort)
+  .map(({ value }) => value);
+
   return (
     <div className="right mt-4">
       {isShow ? (
         <>
-          {posts.map((post) => (
+          {shuffledPosts.map((post) => (
             <Post
               key={post.id}
               caption={post.data().caption}
@@ -46,6 +50,7 @@ const RightHandSide = () => {
               userId={post.data().userId}
               price={post.data().price}
               id={post.id}
+              selling={post.data().selling}
             />
           ))}
         </>

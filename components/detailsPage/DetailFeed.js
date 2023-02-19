@@ -28,7 +28,7 @@ const DetailFeed = () => {
       {posts.map((post) => (
         <VideoDetail
           key={post.id}
-          caption={post.data()}
+          caption={post.data().caption}
           company={post.data().company}
           video={post.data().image}
           profileImage={post.data().profileImage}
@@ -39,6 +39,7 @@ const DetailFeed = () => {
           price={post.data().price}
           id={post.id}
           videoId={videoId}
+          selling={post.data().selling}
         />
       ))}
     </div>
