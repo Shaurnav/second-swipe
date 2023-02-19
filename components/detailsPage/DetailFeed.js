@@ -16,18 +16,21 @@ const DetailFeed = () => {
         query(collection(firestore, "posts"), orderBy("timestamp", "desc")),
         (snapshot) => {
           setPosts(snapshot.docs);
+
+          
         }
       ),
     [firestore]
   );
-  /*   console.log(posts); */
+  
+  
 
   return (
     <div>
       {posts.map((post) => (
         <VideoDetail
           key={post.id}
-          caption={post.data().caption}
+          caption={post.data()}
           company={post.data().company}
           video={post.data().image}
           profileImage={post.data().profileImage}
