@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { MdDelete } from "react-icons/md";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { Configuration, OpenAIApi } from "openai";
 import {
   addDoc,
   collection,
@@ -29,7 +30,7 @@ const CreateVideo = () => {
   const [hashTags, setHashTags] = useState("");
   const [tagShow, setTagShow] = useState(false);
   const [tagError, setTagError] = useState("");
-  const [getPrice, setPrice] = useState(30);
+  const [getPrice, setPrice] = useState(0);
   const [selling, setSelling] = useState(0);
   const [condition, setCondition] = useState(1);
 
@@ -183,10 +184,7 @@ const CreateVideo = () => {
           <div className="rounded-xl border-4 border-gray-200 flex flex-col justify-center items-center  outline-none mt-10 w-[260px] h-[400px] pl-10 pr-10 cursor-pointer hover:bg-gray-100">
             {loading ? (
               <>
-                <UploadeSkeleton />
-                <p className="text-xl font-semibold text-pink-500 text-xenter mt-4 animate-pulse">
-                  uploading...
-                </p>
+                <img className="loader" src="https://i.ibb.co/LCMbLSF/loading.gif" />
               </>
             ) : (
               <div>
@@ -219,7 +217,6 @@ const CreateVideo = () => {
 
                       <p className="text-gray-400 text-center mt-4 text-sm leading-10">
                         MP4 or WebM or ogg <br />
-                        720x1280 resolution or higher <br />
                         Up to 10 minutes <br />
                         Less than 2 GB
                       </p>
@@ -312,13 +309,6 @@ const CreateVideo = () => {
               </option>
             ))}
           </select>
-          <label className="text-md font-medium ">Selling Price (Suggested: ${getPrice})</label>
-          <input
-            type="text"
-            value={selling}
-            onChange={(e) => setSelling(e.target.value)}
-            className="rounded lg:after:w-650 outline-none text-md border-2 border-gray-200 p-2"
-          />
           {tagShow && (
             <>
               <input
@@ -331,31 +321,23 @@ const CreateVideo = () => {
               {tagError && <p className="text-red-500 text-xs">{tagError}</p>}
             </>
           )}
-
+        </div>
+        <div className="selling">
+          <h1>AI Suggested Selling Price</h1>
+          <div className="AIBox">
+            ${getPrice}
+          </div>
+          <label className="text-md font-medium "> Choose Selling Price</label>
+          <input
+            type="text"
+            value={selling}
+            onChange={(e) => setSelling(e.target.value)}
+            className="rounded lg:after:w-650 outline-none text-md border-2 border-gray-200 p-2"
+          />
           {loading ? (
-            <div className="mt-10">
-              <button
-                type="button"
-                className="text-white text-center animate-pulse cursor-not-allowed bg-gradient-to-r w-48 lg:w-80 from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-xl px-5 py-2.5 flex justify-center mr-2"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-10 h-10 animate-spin"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
-                  />
-                </svg>
-              </button>
-            </div>
+            <img className="loader" src="https://i.ibb.co/LCMbLSF/loading.gif" />
           ) : (
-            <div className={tagError ? `flex gap-6 mt-2` : `flex gap-6 mt-10`}>
+            <div className={tagError ? `flex mt-5` : `flex mt-5`}>
               <button
                 onClick={handleDiscard}
                 type="button"

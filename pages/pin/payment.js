@@ -4,29 +4,19 @@ import Header from "../../components/Header";
 
 const Payment = () => {
 
-  const [data, setdata] = useState({
-    name: "",
-    age: 0,
-    date: "",
-    programming: "",
-  });
+  const sdk = require('api')('@checkbook-docs/v3.1#epdp15jldsybsok');
 
-  // Using useEffect for single rendering
   useEffect(() => {
-    // Using fetch to fetch the api from
-    // flask server it will be redirected to proxy
-    fetch("/data").then((res) =>
-      res.json().then((data) => {
-        // Setting a data from api
-        setdata({
-          name: data.Name,
-          age: data.Age,
-          date: data.Date,
-          programming: data.programming,
-        });
-      })
-    );
-  }, []);
+    sdk.auth('d6aa2703655f4ba2af2a56202961ca86:dXbCgzYBMibj8ZwuQMd2NXr6rtvjZ8');
+    sdk.postCheckDigital({
+      recipient: 'testing@checkbook.io',
+      name: 'Widgets Inc.',
+      amount: 5,
+      description: 'Test Payment'
+    })
+      .then(({ data }) => console.log(data))
+      .catch(err => console.error(err));
+  })
 
   return (
     <>
@@ -41,11 +31,6 @@ const Payment = () => {
       <Header isShow={false} />
       <div className="App">
         <header className="App-header">
-          <h1>React and flask</h1>
-          <p>{data.name}</p>
-          <p>{data.age}</p>
-          <p>{data.date}</p>
-          <p>{data.programming}</p>
         </header>
       </div>
     </>

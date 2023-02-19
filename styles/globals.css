@@ -659,4 +659,30 @@ video::-webkit-media-controls-time-remaining-display {
   object-fit: cover;
   height: 40px;
   width: 50px;
+  margin: 10px;
+}
+
+.selling {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 100px;
+  font-weight: bold;
+}
+
+.AIBox {
+  background-color: #1A965E;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24pt;
+  font-weight: bold;
+  border-radius: 50px;
+  margin: 20px;
+  padding: 20px;
+  filter: drop-shadow(5px 5px 25px rgb(129, 226, 155));
 }
