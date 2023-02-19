@@ -72,7 +72,7 @@ const Header = ({ isShow }) => {
         >
           {isShow && (
             <>
-              {!user && (
+              {user && (
                 <button
                   onClick={() => router.push("/pin/create")}
                   type="button"

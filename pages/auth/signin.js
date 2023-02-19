@@ -24,7 +24,7 @@ const Signin = () => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
-      className="h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 w-full py-36 px-4 "
+      className="h-screen w-full py-36 px-4 "
     >
       <Head>
         <title>SecondSwipe</title>
@@ -37,7 +37,7 @@ const Signin = () => {
       <div className="flex flex-col items-center justify-center">
         <img
           className="w-96"
-          src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/TikTok_logo.svg/1200px-TikTok_logo.svg.png"
+          src="https://i.ibb.co/QPD8gS6/fulllogo.png"
           alt=""
         />
         <div className="bg-white shadow lg:w-1/3  md:w-1/2 w-full p-10 mt-16 text-center rounded-md">

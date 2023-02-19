@@ -126,6 +126,60 @@ body {
   cursor: pointer;
 }
 
+.follow-button {
+  height: 2.3rem;
+  width: 6rem;
+  color: #fff;
+  background-color: #000000;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 2px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.follow-button:hover {
+  cursor: pointer;
+}
+
+.buy-button {
+  height: 2.3rem;
+  width: 6rem;
+  color: #fff;
+  background-color: #d90a33;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 2px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.buy-button:hover {
+  cursor: pointer;
+}
+
+.video-buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.video-buttons-container-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-evenly;
+}
+
 .drop-down {
   background-color: transparent;
   border: none;
@@ -591,4 +645,18 @@ video::-webkit-media-controls-time-remaining-display {
 
 .videos::-webkit-scrollbar {
   width: 0px;
+}
+
+.loader-container {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  object-fit: cover;
+  height: 40px;
+  width: 50px;
 }

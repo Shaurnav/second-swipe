@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ThreeDots } from "react-loader-spinner";
+import container from "postcss/lib/container";
 
 const Skeleton = () => {
   return (
@@ -10,16 +11,9 @@ const Skeleton = () => {
       viewport={{ once: true }}
       className="flex justify-center items-center"
     >
-      <ThreeDots
-        height="500"
-        width="500"
-        radius="9"
-        color="#F778A1"
-        ariaLabel="three-dots-loading"
-        wrapperStyle={{}}
-        wrapperClassName=""
-        visible={true}
-      />
+      <div className="loader-container">
+        <img className="loader" src="https://i.ibb.co/LCMbLSF/loading.gif" />
+      </div>
     </motion.div>
   );
 };

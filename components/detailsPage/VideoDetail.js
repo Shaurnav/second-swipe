@@ -29,6 +29,7 @@ import { MdOutlineCancel, MdEmail } from "react-icons/md";
 import { RiWhatsappLine } from "react-icons/ri";
 import { AiOutlineTwitter, AiFillLinkedin } from "react-icons/ai";
 import { GrFacebookOption } from "react-icons/gr";
+import { GiHeartStake } from "react-icons/gi";
 import { FaTelegramPlane } from "react-icons/fa";
 
 import { auth, firestore } from "../../firebase/firebase";
@@ -195,14 +196,14 @@ const VideoDetail = ({
     if (video.includes("firebasestorage.googleapis.com")) {
       const chekerUrl = video.replace(
         "firebasestorage.googleapis.com",
-        "tiktokClone.com"
+        "secondswipe.com"
       );
       setVideoLink(chekerUrl);
     } else if (video.includes("drive.google.com")) {
-      const chekerUrl = video.replace("drive.google.com", "tiktokClone.com");
+      const chekerUrl = video.replace("drive.google.com", "secondswipe.com");
       setVideoLink(chekerUrl);
     } else if (video.includes("mega.nz/embed")) {
-      const chekerUrl = video.replace("mega.nz/embed", "tiktokClone.com");
+      const chekerUrl = video.replace("mega.nz/embed", "secondswipe.com");
       setVideoLink(chekerUrl);
     }
   }, [video]);
@@ -294,14 +295,6 @@ const VideoDetail = ({
                   <div className="text-xl font-bold lowercase tracking-wider flex gap-2 items-center justify-start">
                     {username} <GoVerified className="text-blue-400 text-xl" />
                   </div>
-                  <div className="absolute flex ml-64 top-20 justify-end">
-                    <button
-                      type="button"
-                      className="inline-block px-4 py-1.5 border border-pink-500 text-pink-500 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-                    >
-                      Follow
-                    </button>
-                  </div>
                   <div className="flex gap-2 items-center">
                     <p className="text-sm">{company}</p>
                     <p className="pr-5 text-xs">
@@ -309,6 +302,20 @@ const VideoDetail = ({
                       {moment(new Date(timestamp?.seconds * 1000)).fromNow()}
                     </p>
                   </div>
+                </div>
+                <div className="video-buttons-container">
+                  <button
+                    type="button"
+                    className="follow-button"
+                  >
+                    Follow
+                  </button>
+                  <button
+                    type="button"
+                    className="buy-button"
+                  >
+                    Buy
+                  </button>
                 </div>
               </div>
 
@@ -563,7 +570,7 @@ const VideoDetail = ({
                   />
                   {isCopied ? (
                     <button className="text-xs text-center font-bold w-28 cursor-not-allowed">
-                      Coppid!
+                      Copied!
                     </button>
                   ) : (
                     <motion.button
@@ -572,7 +579,7 @@ const VideoDetail = ({
                       className="text-xs text-center cursor-pointer font-bold w-28"
                       onClick={handleCopyClick}
                     >
-                      Coppy Link
+                      Copy Link
                     </motion.button>
                   )}
                 </div>
