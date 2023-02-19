@@ -239,7 +239,7 @@ const Post = ({
               </>
 
               <div className="flex flex-1 gap-4 py-2.5">
-                <p className="font-semibold text-sm">{"Resale Starting at $" + selling}</p>
+                <p className="font-semibold text-sm">Resale Starting at ${selling}. Originally bought for ${price}. Condition: {condition}.</p>
               </div>
             </div>
           </div>

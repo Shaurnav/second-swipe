@@ -6,7 +6,7 @@ import {router} from "next/client";
 
 const Payment = () => {
 
-  const amount = 40.26;
+  const amount = 145.0;
 
   const options = {
     method: 'POST',
