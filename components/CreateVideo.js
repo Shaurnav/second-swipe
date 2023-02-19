@@ -29,6 +29,9 @@ const CreateVideo = () => {
   const [hashTags, setHashTags] = useState("");
   const [tagShow, setTagShow] = useState(false);
   const [tagError, setTagError] = useState("");
+  const [getPrice, setPrice] = useState(30);
+  const [selling, setSelling] = useState(0);
+  const [condition, setCondition] = useState(1);
 
   const { selectedFile, setSelectedFile, onSelectedFile } = useSelectFile();
   const selectedFileRef = useRef(null);
@@ -154,6 +157,10 @@ const CreateVideo = () => {
   }, [user]);
 
   useEffect(() => {
+    setPrice(((condition/6)*songName).toFixed(2));
+  }, [condition, songName]);
+
+  useEffect(() => {
     handleChecker();
   }, [caption, topic, hashTags]);
 
@@ -173,7 +180,7 @@ const CreateVideo = () => {
               Post a video to your account
             </p>
           </div>
-          <div className="border-dashed rounded-xl border-4 border-gray-200 flex flex-col justify-center items-center  outline-none mt-10 w-[260px] h-[400px] pl-10 pr-10 cursor-pointer hover:border-red-300 hover:bg-gray-100">
+          <div className="rounded-xl border-4 border-gray-200 flex flex-col justify-center items-center  outline-none mt-10 w-[260px] h-[400px] pl-10 pr-10 cursor-pointer hover:bg-gray-100">
             {loading ? (
               <>
                 <UploadeSkeleton />
@@ -191,7 +198,7 @@ const CreateVideo = () => {
                           {/* <FaCloudUploadAlt className='text-gray-300 text-6xl' /> */}
                         </p>
                         <p className="text-xl font-semibold">
-                          Select video to upload
+                          Select Video
                         </p>
                       </div>
 
@@ -216,8 +223,8 @@ const CreateVideo = () => {
                         Up to 10 minutes <br />
                         Less than 2 GB
                       </p>
-                      <p className="text-white bg-gradient-to-br from-pink-500 mt-8 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 w-52">
-                        Select file
+                      <p className="buy-button">
+                        Select File
                       </p>
                     </div>
                     <input
@@ -237,10 +244,9 @@ const CreateVideo = () => {
                       src={selectedFile}
                     />
                     <div className=" flex justify-between gap-20">
-                      <p className="text-lg">video</p>
                       <button
                         type="button"
-                        className=" rounded-full bg-gray-200 text-red-400 p-2 text-xl cursor-pointer outline-none hover:shadow-md transition-all duration-500 ease-in-out"
+                        className="buy-button"
                         onClick={() => setSelectedFile("")}
                       >
                         <MdDelete />
@@ -253,7 +259,7 @@ const CreateVideo = () => {
           </div>
           {wrongFileType && (
             <p className="text-center text-xl text-red-400 font-semibold mt-4 w-[260px]">
-              Please select an video file (mp4 or webm or ogg)
+              Please select a video file (mp4 or webm or ogg)
             </p>
           )}
         </div>
@@ -265,14 +271,14 @@ const CreateVideo = () => {
             onChange={(e) => setCaption(e.target.value)}
             className="rounded lg:after:w-650 outline-none text-md border-2 border-gray-200 p-2"
           />
-          <label className="text-md font-medium ">Song Name</label>
+          <label className="text-md font-medium ">Original Price (in USD)</label>
           <input
             type="text"
             value={songName}
             onChange={(e) => setSongName(e.target.value)}
             className="rounded lg:after:w-650 outline-none text-md border-2 border-gray-200 p-2"
           />
-          <label className="text-md font-medium ">Choose a topic</label>
+          <label className="text-md font-medium ">Choose Category</label>
           <select
             onChange={(e) => {
               setTopic(e.target.value);
@@ -289,6 +295,30 @@ const CreateVideo = () => {
               </option>
             ))}
           </select>
+          <label className="text-md font-medium ">Select Condition (1 = Very Poor, 5 = Excellent)</label>
+          <select
+            onChange={(e) => {
+              setCondition(e.target.value);
+            }}
+            className="outline-none lg:w-650 border-2 border-gray-200 text-md capitalize lg:p-4 p-2 rounded cursor-pointer"
+          >
+            {[1,2,3,4,5].map((item) => (
+              <option
+                key={item}
+                className=" outline-none capitalize bg-white text-gray-700 text-md p-2 hover:bg-slate-300"
+                value={item}
+              >
+                {item}
+              </option>
+            ))}
+          </select>
+          <label className="text-md font-medium ">Selling Price (Suggested: ${getPrice})</label>
+          <input
+            type="text"
+            value={selling}
+            onChange={(e) => setSelling(e.target.value)}
+            className="rounded lg:after:w-650 outline-none text-md border-2 border-gray-200 p-2"
+          />
           {tagShow && (
             <>
               <input
@@ -329,7 +359,7 @@ const CreateVideo = () => {
               <button
                 onClick={handleDiscard}
                 type="button"
-                className="border-gray-300 border-2 text-md font-medium p-2 rounded w-28 lg:w-44 outline-none"
+                className="upload-btn"
               >
                 Discard
               </button>
@@ -337,7 +367,7 @@ const CreateVideo = () => {
                 disabled={selectedFile ? false : true}
                 onClick={handlePost}
                 type="button"
-                className="text-white font-bold bg-gradient-to-r w-28 lg:w-44 from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 text-lg rounded-lg  px-5  text-center mr-2 cursor-pointer"
+                className="login-btn"
               >
                 Post
               </button>
