@@ -169,19 +169,6 @@ const Post = ({
       router.push("/auth/signin");
     }
   };
-  
-  console.table({
-    caption,
-    company,
-    video,
-    profileImage,
-    topic,
-    timestamp,
-    username,
-    userId,
-    songName,
-    id,
-  });
 
   return (
     <>
