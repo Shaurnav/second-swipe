@@ -17,13 +17,11 @@ const DetailFeed = () => {
         (snapshot) => {
           setPosts(snapshot.docs);
 
-          
+
         }
       ),
     [firestore]
   );
-  
-  
 
   return (
     <div>
