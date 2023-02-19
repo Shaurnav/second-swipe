@@ -699,3 +699,26 @@ video::-webkit-media-controls-time-remaining-display {
   display: flex;
   flex-direction: row;
 }
+
+.checkbook {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbook img {
+  width: 50%;
+}
+
+.center-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.center-container button {
+  margin: 10px;
+}
