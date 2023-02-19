@@ -686,3 +686,16 @@ video::-webkit-media-controls-time-remaining-display {
   padding: 20px;
   filter: drop-shadow(5px 5px 25px rgb(129, 226, 155));
 }
+
+.post-header {
+  display: flex;
+  width: 700px;
+  height: 100px;
+  align-items: center;
+  justify-content: space-between !important;
+}
+
+.post-header-left {
+  display: flex;
+  flex-direction: row;
+}

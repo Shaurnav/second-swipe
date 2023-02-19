@@ -181,23 +181,25 @@ const Post = ({
       >
         <div>
           <div className="flex gap-3 p-2 cursor-pointer font-semibold rounded ">
-            <div
-              className="md:w-16 md:h-16 w-10 h-10"
-              onClick={handleChangePage}
-            >
-              <img
-                className=" rounded-full w-14"
-                src={profileImage}
-                alt="user-profile"
-                layout="responsive"
-              />
-            </div>
             <div>
-              <div className="flex items-center gap-2">
+              <div className="post-header">
+                <div className="post-header-left">
+                <div
+                  className="md:w-16 md:h-16 w-10 h-10"
+                  onClick={handleChangePage}
+                >
+                  <img
+                    className=" rounded-full w-14"
+                    src={profileImage}
+                    alt="user-profile"
+                    layout="responsive"
+                  />
+                </div>
                 <p className="flex gap-2 items-center md:text-md font-bold text-primary">
                   {username}
-                  
+
                 </p>
+                </div>
                 <div className="video-buttons-container-row">
                   <button
                     type="button"

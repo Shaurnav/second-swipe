@@ -32,7 +32,7 @@ const CreateVideo = () => {
   const [tagError, setTagError] = useState("");
   const [getPrice, setPrice] = useState(0);
   const [selling, setSelling] = useState(0);
-  const [condition, setCondition] = useState(1);
+  const [condition, setCondition] = useState("");
 
   const { selectedFile, setSelectedFile, onSelectedFile } = useSelectFile();
   const selectedFileRef = useRef(null);
@@ -159,8 +159,8 @@ const CreateVideo = () => {
   }, [user]);
 
   useEffect(() => {
-    setPrice(((condition/6)*price).toFixed(2));
-  }, [condition, price]);
+    setPrice(((condition.length/40)*price).toFixed(2));
+  }, [selectedFile]);
 
   useEffect(() => {
     handleChecker();
@@ -293,23 +293,13 @@ const CreateVideo = () => {
               </option>
             ))}
           </select>
-          <label className="text-md font-medium ">Select Condition (1 = Very Poor, 5 = Excellent)</label>
-          <select
-            onChange={(e) => {
-              setCondition(e.target.value);
-            }}
-            className="outline-none lg:w-650 border-2 border-gray-200 text-md capitalize lg:p-4 p-2 rounded cursor-pointer"
-          >
-            {[1,2,3,4,5].map((item) => (
-              <option
-                key={item}
-                className=" outline-none capitalize bg-white text-gray-700 text-md p-2 hover:bg-slate-300"
-                value={item}
-              >
-                {item}
-              </option>
-            ))}
-          </select>
+          <label className="text-md font-medium ">In a few words, describe the condition of the product.</label>
+          <input
+            type="text"
+            value={condition}
+            onChange={(e) => setCondition(e.target.value)}
+            className="rounded lg:after:w-650 outline-none text-md border-2 border-gray-200 p-2"
+          />
           {tagShow && (
             <>
               <input
