@@ -4,9 +4,9 @@ import Header from "../../components/Header";
 import {motion} from "framer-motion";
 import {router} from "next/client";
 
-const Payment = () => {
+const Payment = (amountProp) => {
 
-  const amount = 145.0;
+  const amount = amountProp;
 
   const options = {
     method: 'POST',

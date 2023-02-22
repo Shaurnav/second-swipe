@@ -40,6 +40,29 @@ const CreateVideo = () => {
   const checker = caption.match(/#/g);
   const tagCheck = hashTags.match(/#/g);
 
+  async function onSubmit(event) {
+    event.preventDefault();
+    try {
+      const response = await fetch("/api/generate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ price: price, condition: condition, topic: topic }),
+      });
+
+      const data = await response.json();
+      if (response.status !== 200) {
+        throw data.error || new Error(`Request failed with status ${response.status}`);
+      }
+      setPrice(data.result);
+    } catch(error) {
+      // Consider implementing your own error handling logic here
+      console.error(error);
+      alert(error.message);
+    }
+  }
+
   const handleChecker = () => {
     if (checker) {
       setCaption(caption.replace("#", ""));
@@ -159,10 +182,6 @@ const CreateVideo = () => {
   }, [user]);
 
   useEffect(() => {
-    setPrice(((condition.length/40)*price).toFixed(2));
-  }, [selectedFile]);
-
-  useEffect(() => {
     handleChecker();
   }, [caption, topic, hashTags]);
 
@@ -230,7 +249,7 @@ const CreateVideo = () => {
                       name="upload-video"
                       ref={selectedFileRef}
                       className="w-0 h-0"
-                      onChange={onSelectedFile}
+                      onChange={onSubmit}
                     />
                   </label>
                 ) : (
